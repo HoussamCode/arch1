@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.util.List;
 
 // 1. LE FEIGN CLIENT AVEC FALLBACK
-@FeignClient(name = "hotel-service", fallback = HotelFeignClient.HotelFallback.class)
+@FeignClient(name = "hotel-service", url = "${hotel-service.url}", fallback = HotelFeignClient.HotelFallback.class)
 public interface HotelFeignClient {
 
     @GetMapping("/rooms/{id}")
