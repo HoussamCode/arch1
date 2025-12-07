@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true     # LIGNE LA PLUS IMPORTANTE DE TA VIE
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      default:            # Resilience4j utilise "default" quand pas de nom explicite
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 30s
+        automaticTransitionFromOpenToHalfOpenEnabled: true
